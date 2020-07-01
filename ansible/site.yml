@@ -1,0 +1,24 @@
+---
+- hosts: web
+  name: This is a play within a playbook
+  become: yes
+  vars:
+    httpd_packages:
+      - httpd
+      - mod_wsgi
+    apache_test_message: This is i atest message
+    apache_max_keep_alive_requests: 115
+
+  tasks:
+    - name: install libselinux-python
+      yum:
+        name: libselinux-python
+        state: present
+      tags: package
+
+    - name: install httpd pacakges
+      yum:
+        name: libselinux-python
+        state: present
+      tags: package
+
